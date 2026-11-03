@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Little Care Goes a Long Way – Listening Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFD95A;--card:#FFFFFF;--ink:#2A2352;--soft:#6B6494;--line:#E8E3F5;--accent:#2A2352;--onaccent:#FFFFFF;--hl:#FFF1B8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1D1838;--card:#2A2352;--ink:#FFF6D6;--soft:#B9B1E0;--line:#3E3670;--accent:#FFD95A;--onaccent:#2A2352;--hl:#3A3170}}
+:root[data-theme="dark"]{--bg:#1D1838;--card:#2A2352;--ink:#FFF6D6;--soft:#B9B1E0;--line:#3E3670;--accent:#FFD95A;--onaccent:#2A2352;--hl:#3A3170}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"Prompt","Noto Sans Thai","Sarabun",system-ui,sans-serif;line-height:1.65;transition:background .4s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.lang{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;z-index:20;display:flex;background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:3px;font-size:14px}
+.lang button{border:0;background:none;color:var(--ink);font:inherit;font-weight:600;padding:4px 14px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--onaccent)}
+main{max-width:680px;margin:0 auto;padding:70px 18px 40px}
+.card{background:var(--card);border-radius:28px;padding:32px 26px;box-shadow:0 10px 0 rgba(42,35,82,.14)}
+@media(min-width:600px){.card{padding:44px}}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(30px,7vw,44px);line-height:1.2;font-weight:700}
+.sub{color:var(--soft);margin-top:6px}
+.big{font-size:22px;font-weight:700;margin:26px 0 10px}
+.badge{display:inline-block;background:var(--hl);border-radius:999px;padding:4px 16px;font-weight:600;font-size:14px;margin-top:22px}
+.btn{font:inherit;font-weight:600;font-size:17px;border:2px solid var(--ink);background:var(--accent);color:var(--onaccent);border-radius:999px;padding:12px 28px;cursor:pointer;margin-top:26px;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+button:focus-visible{outline:3px solid #E5484D;outline-offset:2px}
+.prog{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:10px 0 24px}
+.prog i{display:block;height:100%;background:var(--accent);border-radius:9px;transition:width .35s}
+.q{font-size:clamp(20px,4.6vw,25px);font-weight:600;line-height:1.5;margin-bottom:20px}
+.opt{display:flex;gap:14px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt b{flex:none;width:32px;height:32px;border-radius:50%;background:var(--hl);display:grid;place-items:center;font-size:15px}
+.opt[aria-checked="true"]{border-color:var(--ink);background:var(--hl)}
+.opt[aria-checked="true"] b{background:var(--accent);color:var(--onaccent)}
+.warn{color:#C62828;font-weight:500;min-height:26px;margin-top:10px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .warn{color:#FF8A8A}}
+.res{border-radius:22px;padding:22px;margin-bottom:18px;background:var(--hl)}
+.res svg{width:150px;height:150px;display:block;margin:0 auto 6px}
+.res h2{font-size:28px;line-height:1.25;text-align:center}
+.res .alt{text-align:center;color:var(--soft);margin-bottom:12px}
+.tip{background:var(--card);border-radius:14px;padding:14px 16px;margin-top:14px}
+.tip strong{display:block;font-size:13px;letter-spacing:.04em;color:var(--soft)}
+.en{font-style:italic;color:var(--soft);margin-top:10px;text-align:center}
+.note{font-size:13px;color:var(--soft);margin-top:16px}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%);background:var(--ink);color:var(--card);padding:12px 22px;border-radius:999px;font-weight:500;z-index:30;text-align:center;max-width:90vw}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;color:#fff;text-align:center}
+.modal img{max-width:100%;max-height:75vh;border-radius:12px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+:root{--bg:#EAF3FF;--card:#FDFBFF;--ink:#1E2A6B;--accent:#1E2A6B;--hl:#E4EEFF;--line:#D5E3FA;--note:#FFE0EA;--soft:#5D6797}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--note:#4A2F5E}}
+body{background-image:radial-gradient(circle at 0 0,rgba(42,58,140,.9) 0 110px,transparent 111px),radial-gradient(circle at 100% 100%,rgba(142,197,255,.8) 0 190px,transparent 191px);background-attachment:fixed}
+.card{position:relative;overflow:hidden;border-radius:32px;box-shadow:0 16px 40px rgba(30,42,107,.16)}
+.card::before{content:"";position:absolute;top:-80px;right:-70px;width:210px;height:210px;border-radius:50%;background:#8EC5FF;opacity:.55}
+.card::after{content:"";position:absolute;top:-90px;left:-80px;width:190px;height:190px;border-radius:50%;background:#1E2A6B;opacity:.9}
+.card>*{position:relative;z-index:1}
+.lang{border-color:var(--ink);box-shadow:0 4px 0 rgba(30,42,107,.2)}
+h1,h2{font-weight:800}
+.hero{text-align:center;padding-bottom:170px}
+.brush{line-height:1.05;margin-top:34px}
+.brush small{display:block;font-size:clamp(24px,6vw,34px);margin-bottom:6px}
+.brush span{display:inline-block;font-size:clamp(34px,10vw,62px);padding:2px 22px;margin:3px 0;background:#FFD95A;color:#1E2A6B;border-radius:14px 40px 18px 44px;transform:rotate(-3deg)}
+.thai-title{display:inline-block;font-size:clamp(20px,5vw,28px);font-weight:700;margin:22px 0 4px;background:linear-gradient(transparent 82%,#FF9EC0 82% 92%,transparent 92%);transform:rotate(-2deg)}
+.card>.mascot{position:absolute;right:6px;bottom:-4px;width:170px}
+.mascot svg{width:100%;display:block}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:22px}
+.pill{background:var(--hl);border-radius:999px;padding:6px 18px;font-weight:700;font-size:14px}
+.dots i{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--line);margin-left:12px}
+.dots i.on{background:var(--accent)}
+.q{text-align:center;font-weight:800;margin:26px 0 22px}
+.opt{border-radius:20px;background:#F6F9FF;border:2px solid var(--line);box-shadow:0 3px 0 rgba(30,42,107,.08)}
+.opt b{background:transparent;border:2px solid var(--ink);width:28px;height:28px;font-size:13px}
+.opt[aria-checked="true"]{background:#FFF4C6;border-color:var(--ink)}
+.btn{box-shadow:0 6px 0 rgba(0,0,0,.22);font-weight:700}
+.btn:active{box-shadow:0 2px 0 rgba(0,0,0,.22);transform:translateY(4px)}
+.rtitle{text-align:center;font-size:clamp(40px,12vw,66px);line-height:.98;margin:10px 0 14px}
+.res{background:var(--note);border-radius:10px;padding:30px 22px 22px;transform:rotate(-.8deg);position:relative;overflow:visible}
+.res::before{content:"";position:absolute;top:-12px;left:-16px;width:96px;height:30px;background:#F6DF8E;opacity:.9;transform:rotate(-28deg)}
+.res h2{font-size:clamp(26px,7vw,36px);line-height:1.05;margin-bottom:8px}
+.brushy{display:table;margin:6px auto 4px;background:#FFD95A;color:#1E2A6B;padding:5px 22px;border-radius:12px;transform:rotate(-3deg);font-weight:700}
+.thisis{display:table;margin:4px auto 14px;background:#FFB3CC;color:#1E2A6B;border-radius:999px;padding:4px 22px;font-weight:700}
+.res svg{width:170px;height:170px}
+</style>
+</head>
+<body>
+<div class="lang" role="group" aria-label="Language"><button id="bTH" aria-pressed="true">TH</button><button id="bEN" aria-pressed="false">EN</button></div>
+<main id="app"></main>
+<script>
+var COL={heartful:"#FF8FAB",helper:"#FFA94D",observer:"#4FC3A1",distracted:"#9B8CFF"};
+var ART={
+heartful:'<path d="M100 170C40 125 28 80 55 55c18-16 37-8 45 8 8-16 27-24 45-8 27 25 15 70-45 115z" fill="#FF8FAB" stroke="#2A2352" stroke-width="6" stroke-linejoin="round"/><path d="M70 78c6-8 16-8 20 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>',
+helper:'<circle cx="100" cy="100" r="76" fill="#FFA94D" stroke="#2A2352" stroke-width="6"/><path d="M112 36 68 112h30l-10 52 46-80h-30z" fill="#FFF1B8" stroke="#2A2352" stroke-width="6" stroke-linejoin="round"/>',
+observer:'<path d="M20 100C50 55 150 55 180 100 150 145 50 145 20 100z" fill="#fff" stroke="#2A2352" stroke-width="6" stroke-linejoin="round"/><circle cx="100" cy="100" r="30" fill="#4FC3A1" stroke="#2A2352" stroke-width="6"/><circle cx="100" cy="100" r="11" fill="#2A2352"/><circle cx="110" cy="90" r="5" fill="#fff"/>',
+distracted:'<rect x="62" y="22" width="76" height="140" rx="16" fill="#9B8CFF" stroke="#2A2352" stroke-width="6"/><rect x="72" y="42" width="56" height="86" rx="6" fill="#fff"/><circle cx="100" cy="146" r="6" fill="#2A2352"/><path d="M150 50c14 10 14 36 0 46M162 36c24 18 24 62 0 80" fill="none" stroke="#2A2352" stroke-width="6" stroke-linecap="round"/>'};
+function svg(k){return '<svg viewBox="0 0 200 200" aria-hidden="true">'+ART[k]+'</svg>'}
+var MASCOT='<svg viewBox="0 0 200 170" aria-hidden="true"><circle cx="100" cy="104" r="62" fill="#FFF8F2" stroke="#E7D9CF" stroke-width="3"/><path d="M42 98C36 22 164 22 158 98" fill="none" stroke="#4A6BD8" stroke-width="10" stroke-linecap="round"/><rect x="28" y="86" width="24" height="46" rx="12" fill="#4A6BD8"/><rect x="148" y="86" width="24" height="46" rx="12" fill="#4A6BD8"/><path d="M76 104q8-9 16 0M108 104q8-9 16 0M92 120q8 9 16 0" fill="none" stroke="#1E2A6B" stroke-width="4" stroke-linecap="round"/><circle cx="66" cy="116" r="9" fill="#FFB3C6" opacity=".8"/><circle cx="134" cy="116" r="9" fill="#FFB3C6" opacity=".8"/></svg>';
+var KEYS=["heartful","helper","observer","distracted"];
+var T={
+th:{
+ title:"คุณเป็นนักฟังแบบไหน?",en1:"ARE YOU A GOOD LISTENER?",listen:"LISTEN UP! 👂",
+ intro:["บางครั้งการรับฟังอาจดูเป็นเรื่องง่าย แต่ในวันที่เรามีหลายอย่างต้องจัดการ เราอาจเผลอไม่ได้ใส่ใจกับสิ่งที่คนตรงหน้ากำลังพูด","มาลองสำรวจสไตล์การรับฟังของตัวเอง ผ่าน 5 สถานการณ์ใกล้ตัวในที่ทำงานกัน!","ใช้เวลาเพียง 2–3 นาที ไม่มีถูกหรือผิด เลือกคำตอบที่ตรงกับตัวเองมากที่สุด แล้วมาดูกันว่าคุณเป็นนักฟังแบบไหน"],
+ badge:"5 QUESTIONS | 2–3 MINUTES",start:"START THE QUIZ →",
+ q:[["เพื่อนกำลังเล่าเรื่องงานที่เจอปัญหา ระหว่างที่เขาเล่า คุณจะ...","ตั้งใจฟังจนจบ แล้วค่อยถามว่าอยากให้ช่วยอะไรไหม","รีบเสนอวิธีแก้ไขทันที เพราะอยากช่วยให้เร็วที่สุด","เล่าเรื่องคล้าย ๆ กันของตัวเองแทรกเข้าไป","ฟังไปด้วย เช็กโทรศัพท์ไปด้วย"],
+ ["เพื่อนมีความคิดเห็นที่ต่างจากคุณในที่ประชุม คุณจะ...","ฟังเหตุผลของเขาก่อน แล้วค่อยแชร์มุมมองของตัวเอง","รีบอธิบายว่าทำไมความคิดของเราถึงดีกว่า","ปล่อยผ่าน เพราะไม่อยากเสียเวลาโต้แย้ง","ฟังเฉพาะส่วนที่เห็นด้วย"],
+ ["เพื่อนบอกว่า “ช่วงนี้งานเยอะมาก รู้สึกเหนื่อยจัง” คุณจะตอบว่า...","ฟังดูเหนื่อยมากเลยนะ มีอะไรที่เราอยากช่วยได้บ้างไหม?","ทุกคนก็งานเยอะเหมือนกันนะ สู้ ๆ","อย่าคิดมาก เดี๋ยวก็ผ่านไป","ถ้าเป็นเรา เราจะจัดการแบบนี้..."],
+ ["ระหว่างคุยกัน เพื่อนหยุดพูดไปสักพัก คุณจะ...","ให้เวลาเขาคิดและเรียบเรียงสิ่งที่อยากพูด","รีบพูดแทรกเพื่อไม่ให้บทสนทนาเงียบ","เปลี่ยนไปคุยเรื่องอื่นทันที","สรุปแทนว่าเขาคงหมายถึงอะไร"],
+ ["หลังจากเพื่อนเล่าเรื่องสำคัญให้ฟัง คุณจะ...","ลองทวนสิ่งที่เข้าใจ หรือถามเพิ่มเติมเพื่อให้แน่ใจ","พยักหน้าแล้วจบบทสนทนา","รีบแชร์ความคิดเห็นของตัวเอง","จำเฉพาะประเด็นที่คิดว่าสำคัญกับเรา"]],
+ qlabel:"QUESTION",back:"ย้อนกลับ",next:"ถัดไป",submit:"ดูผลลัพธ์",save:"SAVE MY RESULT ↓",again:"ทำใหม่อีกครั้ง",cont:"ไปต่อ",
+ warn:"กรุณาเลือกคำตอบก่อนไปต่อ",saved:"บันทึกผลลัพธ์เรียบร้อยแล้ว!",yours:"สไตล์การรับฟังของคุณ",yourTitle:"YOUR LISTENING STYLE!",yourSub:"มาดูกันว่าคุณเป็นนักฟังแบบไหน 💛",
+ this:"นี่คือสไตล์การรับฟังของคุณ!",tipLabel:"A LITTLE TIP FOR YOU",mixed:"คะแนนเท่ากัน! คุณเป็นนักฟังแบบผสมสองสไตล์",
+ note:"ผลลัพธ์เป็นการสะท้อนพฤติกรรมจากคำตอบในควิซ ไม่ใช่การประเมินหรือตัดสินบุคลิกภาพของผู้เล่น",
+ saveHint:"กดค้างที่รูปเพื่อบันทึก",close:"ปิด",
+ r:{heartful:{n:"THE HEARTFUL LISTENER",t:"ผู้ฟังที่ใส่ใจความรู้สึก",d:"คุณเป็นคนที่ให้ความสำคัญกับความรู้สึกของคนรอบข้าง ตั้งใจฟัง ไม่รีบตัดสิน และพร้อมทำความเข้าใจอีกฝ่ายก่อนเสมอ การเปิดใจรับฟังของคุณอาจทำให้ใครบางคนรู้สึกว่าเขาไม่ได้อยู่คนเดียว",tip:"ลองถามเพิ่มเติมว่า “อยากเล่าอะไรอีกไหม?” เพื่อให้อีกฝ่ายรู้สึกว่าเราพร้อมรับฟังจริง ๆ",e:"Keep listening, keep caring!"},
+ helper:{n:"THE QUICK HELPER",t:"ผู้ฟังสายพร้อมช่วย",d:"คุณเป็นคนกระตือรือร้นและพร้อมช่วยเหลือคนรอบข้าง เมื่อเห็นใครเจอปัญหา คุณมักอยากหาทางออกให้ทันที เพราะไม่อยากให้อีกฝ่ายต้องเหนื่อยไปมากกว่านี้ แต่บางครั้งการฟังให้จบก่อน อาจเป็นสิ่งที่อีกฝ่ายต้องการมากกว่าคำแนะนำก็ได้นะ",tip:"ก่อนเสนอทางออก ลองถามว่า “อยากให้เราช่วยคิดหาทางแก้ หรืออยากให้เราฟังก่อนดี?”",e:"Sometimes, listening is the best way to help!"},
+ observer:{n:"THE QUIET OBSERVER",t:"ผู้ฟังสายสังเกต",d:"คุณอาจเป็นคนที่ชอบฟังและคิดตามเงียบ ๆ ไม่ค่อยแทรกบทสนทนา และให้เวลากับตัวเองในการทำความเข้าใจสิ่งที่ได้ยิน แต่อย่าลืมส่งสัญญาณให้อีกฝ่ายรู้ว่าเรากำลังตั้งใจฟังอยู่ด้วยนะ",tip:"ลองพยักหน้า ถามต่อ หรือพูดทวนสิ่งที่เข้าใจ เพื่อให้อีกฝ่ายรู้ว่าเราติดตามเรื่องราวของเขาอยู่",e:"A little response can mean a lot!"},
+ distracted:{n:"THE DISTRACTED LISTENER",t:"ผู้ฟังที่อาจต้องเติมโฟกัส",d:"ในวันที่มีหลายเรื่องให้จัดการ คุณอาจเผลอแบ่งความสนใจไปทำอย่างอื่น จนพลาดรายละเอียดสำคัญที่อีกฝ่ายกำลังสื่อสาร ไม่เป็นไรเลย เพราะเราทุกคนต่างมีวันที่วุ่นวายกันได้ ลองเริ่มจากการให้เวลากับบทสนทนาตรงหน้าเพิ่มขึ้นอีกนิดนะ",tip:"ลองวางโทรศัพท์ พักจากสิ่งที่กำลังทำ และให้เวลากับคนตรงหน้าอย่างเต็มที่",e:"Be present. Be a better listener!"}},
+ cTitle:"A LITTLE CARE GOES A LONG WAY",cSub:"การรับฟังเล็ก ๆ อาจมีความหมายมากกว่าที่คิด",cBody:"บางครั้งเราไม่จำเป็นต้องมีคำตอบให้ทุกเรื่อง แค่ตั้งใจฟัง เปิดใจ และให้พื้นที่อีกฝ่ายได้พูด ก็เป็นการส่งต่อความใส่ใจที่มีความหมายแล้ว",cEnd:"วันนี้ลองเป็นผู้ฟังที่ดีให้ใครสักคนดูนะ 💛",cBtn:"TAKE THE LISTENING CHALLENGE AGAIN"},
+en:{
+ title:"What kind of listener are you?",en1:"ARE YOU A GOOD LISTENER?",listen:"LISTEN UP! 👂",
+ intro:["Listening can seem easy, but on busy days we can miss what the person in front of us is saying.","Let’s explore your listening style through 5 everyday workplace situations!","It takes just 2–3 minutes and there are no right or wrong answers. Pick the one closest to you and find out what kind of listener you are."],
+ badge:"5 QUESTIONS | 2–3 MINUTES",start:"START THE QUIZ →",
+ q:[["A colleague is telling you about a problem at work. While they talk, you...","Listen all the way through, then ask if they’d like some help","Jump in with a fix right away, because you want to help as fast as you can","Share a similar story of your own","Listen while checking your phone"],
+ ["A colleague has a different opinion from yours in a meeting. You...","Hear out their reasoning first, then share your view","Quickly explain why your idea is better","Let it go, since you don’t want to spend time debating","Only listen to the parts you agree with"],
+ ["A colleague says, “I’ve got so much work lately, I’m exhausted.” You reply...","That sounds really tiring. Is there anything I can do to help?","Everyone’s busy, you know. Hang in there!","Don’t overthink it. It’ll pass.","If it were me, I’d handle it like this..."],
+ ["During a conversation, your colleague goes quiet for a moment. You...","Give them time to think and put their words together","Jump in so the conversation doesn’t go silent","Switch to another topic right away","Fill in what you assume they meant"],
+ ["After a colleague shares something important, you...","Repeat back what you understood, or ask more to be sure","Nod and end the conversation","Quickly share your own opinion","Remember only the points that matter to you"]],
+ qlabel:"QUESTION",back:"Back",next:"Next",submit:"See my result",save:"SAVE MY RESULT ↓",again:"Try again",cont:"Continue",
+ warn:"Please choose an answer before continuing.",saved:"Your result has been saved! 💛",yours:"Your listening style",yourTitle:"YOUR LISTENING STYLE!",yourSub:"Let’s see what kind of listener you are 💛",
+ this:"This is your listening style!",tipLabel:"A LITTLE TIP FOR YOU",mixed:"It’s a tie! You’re a blend of two styles.",
+ note:"Results reflect the behaviors in your quiz answers. They are not an assessment or judgment of your personality.",
+ saveHint:"Press and hold the image to save it",close:"Close",
+ r:{heartful:{n:"THE HEARTFUL LISTENER",t:"Listens with heart",d:"You care about how the people around you feel. You listen closely, hold off on judging, and try to understand the other person first. Your open ear can make someone feel they’re not alone.",tip:"Try asking, “Is there anything else you’d like to share?” so they know you’re truly ready to listen.",e:"Keep listening, keep caring!"},
+ helper:{n:"THE QUICK HELPER",t:"Listens, ready to help",d:"You’re energetic and quick to support the people around you. When someone has a problem, you want to find a solution right away so they don’t have to struggle any longer. But sometimes being heard to the end is what they need more than advice.",tip:"Before offering a solution, try asking, “Would you like help figuring this out, or would you like me to just listen first?”",e:"Sometimes, listening is the best way to help!"},
+ observer:{n:"THE QUIET OBSERVER",t:"Listens by observing",d:"You may be someone who likes to listen and think things through quietly. You rarely interrupt, and you give yourself time to take in what you hear. Just remember to show the other person that you’re paying attention.",tip:"Try nodding, asking a follow-up, or repeating back what you understood so they know you’re following their story.",e:"A little response can mean a lot!"},
+ distracted:{n:"THE DISTRACTED LISTENER",t:"Listens, but needs focus",d:"On days when there’s a lot going on, your attention may drift to other things and you can miss important details. That’s okay, because everyone has busy days. Try giving the conversation in front of you a little more time.",tip:"Try putting your phone down, pausing what you’re doing, and giving the person in front of you your full attention.",e:"Be present. Be a better listener!"}},
+ cTitle:"A LITTLE CARE GOES A LONG WAY",cSub:"A little listening can mean more than you think.",cBody:"Sometimes we don’t need to have an answer for everything. Listening closely, staying open, and giving the other person room to speak is already a meaningful way to show care.",cEnd:"Try being a good listener for someone today 💛",cBtn:"TAKE THE LISTENING CHALLENGE AGAIN"}
+};
+var S={lang:"th",page:0,ans:[null,null,null,null,null],res:null,warn:false,toast:""};
+var app=document.getElementById("app");
+function t(){return T[S.lang]}
+function other(){return T[S.lang==="th"?"en":"th"]}
+function compute(){
+ var c={A:0,B:0,C:0,D:0},L=["A","B","C","D"];
+ S.ans.forEach(function(a){c[L[a]]++});
+ var max=Math.max(c.A,c.B,c.C,c.D),tied=L.filter(function(l){return c[l]===max});
+ if(tied.length>1){var f=L[S.ans[4]];if(tied.indexOf(f)>-1)tied=[f]}
+ return tied.map(function(l){return KEYS[L.indexOf(l)]});
+}
+function rname(k,lang){var r=T[lang].r[k];return lang==="th"?[r.n,r.t]:[r.n,r.t]}
+function resultCard(k){
+ var r=t().r[k];
+ return '<div class="res"><h2>'+r.n+'</h2><p class="brushy">'+r.t+'</p>'+svg(k)+'<p class="thisis">'+t().this+'</p><p>'+r.d+'</p><div class="tip"><strong>'+t().tipLabel+'</strong>'+r.tip+'</div><p class="en">'+r.e+'</p></div>';
+}
+function render(){
+ var x=t(),h="",p=S.page;
+ document.documentElement.lang=S.lang;
+ document.getElementById("bTH").setAttribute("aria-pressed",S.lang==="th");
+ document.getElementById("bEN").setAttribute("aria-pressed",S.lang==="en");
+ if(p===0){
+  h='<div class="card hero"><div class="mascot">'+MASCOT+'</div><h1 class="brush"><small>ARE YOU A</small><span>GOOD</span><br><span>LISTENER?</span></h1><p class="thai-title">'+x.title+'</p><p class="big">'+x.listen+'</p>'+x.intro.map(function(s){return '<p style="margin-bottom:10px">'+s+'</p>'}).join("")+'<span class="badge">'+x.badge+'</span><br><button class="btn" data-a="start">'+x.start+'</button></div>';
+ }else if(p>=1&&p<=5){
+  var qi=p-1,q=x.q[qi];
+  h='<div class="card"><div class="top"><span class="pill">0'+p+' / '+x.qlabel+' '+p+'</span><span class="dots">'+[1,2,3,4,5].map(function(n){return '<i class="'+(n<=p?'on':'')+'"></i>'}).join("")+'</span></div><h2 class="q">'+q[0]+'</h2><div role="radiogroup" aria-label="'+q[0]+'">';
+  for(var i=0;i<4;i++)h+='<button class="opt" role="radio" aria-checked="'+(S.ans[qi]===i)+'" data-a="pick" data-i="'+i+'"><b>'+"ABCD"[i]+'</b><span>'+q[i+1]+'</span></button>';
+  h+='</div><p class="warn" role="alert">'+(S.warn?x.warn:"")+'</p><div class="row"><button class="btn ghost" style="margin-top:8px" data-a="back">← '+x.back+'</button><button class="btn" style="margin-top:8px" data-a="next">'+(p===5?x.submit:x.next)+(p===5?"":" →")+'</button></div></div>';
+ }else if(p===6){
+  var ks=S.res;
+  h='<div class="card"><div class="top"><span class="pill">07 / '+x.yourTitle.replace("!","")+'</span></div><h1 class="rtitle">'+x.yourTitle.replace(/ /g,"<br>")+'</h1><p class="sub" style="margin-bottom:22px;text-align:center">'+x.yourSub+'</p>'+(ks.length>1?'<p style="margin-bottom:12px;font-weight:600">'+x.mixed+'</p>':'')+ks.map(resultCard).join("")+'<p class="note">'+x.note+'</p><div class="row"><button class="btn" data-a="save">'+x.save+'</button><button class="btn ghost" data-a="cont">'+x.cont+' →</button></div><div class="row"><button class="btn ghost" style="margin-top:12px" data-a="again">↺ '+x.again+'</button></div></div>';
+ }else{
+  h='<div class="card" style="text-align:center"><h1>'+x.cTitle+'</h1><p class="big">'+x.cSub+'</p><p>'+x.cBody+'</p><p class="big">'+x.cEnd+'</p><button class="btn" data-a="again">'+x.cBtn+'</button></div>';
+ }
+ if(S.toast)h+='<div class="toast" role="status">'+S.toast+'</div>';
+ app.innerHTML=h;
+}
+function go(p){S.page=p;S.warn=false;render();window.scrollTo(0,0)}
+function reset(){S.ans=[null,null,null,null,null];S.res=null;S.warn=false;go(0)}
+function toast(m){S.toast=m;render();setTimeout(function(){S.toast="";render()},2600)}
+app.addEventListener("click",function(e){
+ var b=e.target.closest("[data-a]");if(!b)return;
+ var a=b.dataset.a,p=S.page;
+ if(a==="start")go(1);
+ else if(a==="pick"){S.ans[p-1]=+b.dataset.i;S.warn=false;render();var o=app.querySelector('[data-i="'+b.dataset.i+'"]');if(o)o.focus()}
+ else if(a==="back")go(p-1);
+ else if(a==="next"){
+  if(S.ans[p-1]===null){S.warn=true;render();return}
+  if(p===5){S.res=compute();go(6)}else go(p+1);
+ }
+ else if(a==="save")saveImage();
+ else if(a==="cont")go(7);
+ else if(a==="again")reset();
+});
+function setLang(l){S.lang=l;render()}
+document.getElementById("bTH").onclick=function(){setLang("th")};
+document.getElementById("bEN").onclick=function(){setLang("en")};
+
+/* ---------- Save as PNG (1080x1350) ---------- */
+function wrap(ctx,text,maxW){
+ var seg;try{seg=Array.from(new Intl.Segmenter(S.lang==="th"?"th":"en",{granularity:"word"}).segment(text),function(s){return s.segment})}catch(e){seg=text.split("")}
+ var lines=[],cur="";
+ seg.forEach(function(w){var test=cur+w;if(ctx.measureText(test).width>maxW&&cur.trim()){lines.push(cur.trim());cur=w.replace(/^\s+/,"")}else cur=test});
+ if(cur.trim())lines.push(cur.trim());return lines;
+}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function loadImg(k){return new Promise(function(res){var im=new Image();im.onload=function(){res(im)};im.onerror=function(){res(null)};im.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">'+ART[k]+'</svg>')})}
+async function saveImage(){
+ var x=t(),ks=S.res,F='"Prompt","Noto Sans Thai",sans-serif';
+ try{await Promise.all([document.fonts.load('400 30px Prompt',x.r.heartful.d),document.fonts.load('700 30px Prompt',x.r.heartful.d),document.fonts.load('600 30px Prompt','Aa')])}catch(e){}
+ var imgs=await Promise.all(ks.map(loadImg));
+ var cv=document.createElement("canvas");cv.width=1080;cv.height=1350;var c=cv.getContext("2d");
+ var g=c.createLinearGradient(0,0,1080,1350);g.addColorStop(0,"#CFE6FF");g.addColorStop(1,"#FFE3EE");c.fillStyle=g;c.fillRect(0,0,1080,1350);c.fillStyle="#1E2A6B";c.beginPath();c.arc(30,30,190,0,7);c.fill();c.fillStyle="#8EC5FF";c.beginPath();c.arc(1060,1330,230,0,7);c.fill();
+ 
+ c.fillStyle="#fff";rr(c,50,50,980,1250,48);c.fill();
+ c.textAlign="center";c.textBaseline="alphabetic";c.fillStyle="#2A2352";
+ c.font="700 34px "+F;c.fillText("A LITTLE CARE GOES A LONG WAY",540,128);
+ c.font="500 30px "+F;c.fillStyle="#6B6494";c.fillText(x.yours,540,176);
+ var n=ks.length,top=210,H=1090,secH=H/n;
+ ks.forEach(function(k,i){
+  var r=x.r[k],o=other().r[k],y0=top+i*secH,col=COL[k];
+  var big=n===1,sz=big?260:170,pad=big?0:70;
+  c.fillStyle="#FFE0EA";rr(c,90,y0+(big?0:8),900,secH-(big?10:24),36);c.fill();
+  var tx,maxW,ty;
+  if(big){if(imgs[i])c.drawImage(imgs[i],540-sz/2,y0+24,sz,sz);c.textAlign="center";tx=540;maxW=780;ty=y0+sz+90}
+  else{if(imgs[i])c.drawImage(imgs[i],120,y0+30,sz,sz);c.textAlign="left";tx=320;maxW=640;ty=y0+62}
+  c.fillStyle="#2A2352";c.font="700 "+(big?52:38)+"px "+F;
+  var nm=wrap(c,r.n,maxW);nm.forEach(function(l,j){c.fillText(l,tx,ty+j*(big?62:46))});ty+=(nm.length-1)*(big?62:46);
+  c.fillStyle=col;c.fillStyle="#6B6494";c.font="500 "+(big?32:26)+"px "+F;
+  var sub=S.lang==="th"?r.t:o.t;c.fillText(sub,tx,ty+(big?46:36));
+  ty+=big?46:36;
+  var dfs=big?30:23,dlh=big?46:34;c.fillStyle="#2A2352";c.font="400 "+dfs+"px "+F;
+  var yy=ty+(big?50:38);
+  wrap(c,r.d,maxW).forEach(function(l){c.fillText(l,tx,yy);yy+=dlh});
+  var tf=big?27:21,tl=big?42:31;c.font="500 "+tf+"px "+F;
+  var tl_=wrap(c,r.tip,maxW-40),bh=(big?60:46)+tl_.length*tl;
+  yy+=big?10:2;c.fillStyle="#fff";rr(c,tx-(big?400:20),yy,maxW+(big?20:40),bh,22);c.fill();
+  var bx=big?tx:tx+0;c.fillStyle="#6B6494";c.font="600 "+(big?22:17)+"px "+F;
+  c.textAlign=big?"center":"left";c.fillText(x.tipLabel,big?540:tx,yy+(big?38:30));
+  c.fillStyle="#2A2352";c.font="500 "+tf+"px "+F;var ty2=yy+(big?38:30)+(big?46:34);
+  tl_.forEach(function(l){c.fillText(l,big?540:tx,ty2);ty2+=tl});
+ });
+ c.textAlign="center";c.fillStyle="#6B6494";c.font="500 26px "+F;c.fillText(r_e(ks),540,1262);
+ cv.toBlob(function(blob){
+  var url=URL.createObjectURL(blob);
+  if(/iPad|iPhone|iPod/.test(navigator.userAgent)){showModal(url);return}
+  var a=document.createElement("a");a.href=url;a.download="my-listening-style.png";document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(url)},4000);
+  toast(S.lang==="en"?T.en.saved:T.th.saved);
+ },"image/png");
+}
+function r_e(ks){return ks.map(function(k){return t().r[k].e}).join("  ·  ")}
+function showModal(url){
+ var m=document.createElement("div");m.className="modal";
+ m.innerHTML='<img src="'+url+'" alt=""><p>'+t().saveHint+'</p><button class="btn" style="margin:0" id="mc">'+t().close+'</button>';
+ document.body.appendChild(m);document.getElementById("mc").onclick=function(){m.remove()};
+ toast(t().saved);
+}
+render();
+</script>
+</body>
+</html>
